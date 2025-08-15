@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كمشكاة - كوبونات كورسات يوديمي</title>
+    <!-- تضمين Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for a clean look -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <style>
+        /* Base styles for body and fonts */
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl; /* Right-to-left text direction */
+        }
+        /* Custom styles for the active filter button */
+        .filter-btn.active {
+            background-color: #22c55e; /* green-500 */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Animation for page content */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    <!-- Google Fonts for Arabic and English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 p-6 sm:p-10">
+
+<div class="container mx-auto fade-in">
+    <!-- Navigation Bar -->
+    <nav class="bg-white p-4 rounded-xl shadow-lg mb-8 flex justify-center gap-4 sm:gap-8">
+        <a href="index.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">الصفحة الرئيسية</a>
+        <div class="relative dropdown">
+            <a href="courses.html" class="text-lg sm:text-xl font-bold text-green-600 transition duration-200">كورسات</a>
+            <div class="dropdown-menu hidden absolute top-full mt-2 w-48 bg-white rounded-lg shadow-lg z-10 text-right">
+                <a href="udemy-coupons.html" class="block px-4 py-2 text-green-600 hover:bg-gray-200 rounded-t-lg">كوبونات كورسات يوديمي</a>
+                <a href="opportunities.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">فرص أو منح</a>
+            </div>
+        </div>
+        <a href="articles.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">محتوى</a>
+        <a href="contact.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">تواصل معنا</a>
+    </nav>
+
+    <h1 class="text-4xl sm:text-5xl font-bold text-center text-green-600 mb-6">كوبونات كورسات يوديمي</h1>
+    
+    <!-- Date Container -->
+    <div id="date-container" class="text-center text-sm text-gray-600 mb-8"></div>
+
+    <!-- Search and Filter Bar -->
+    <div class="bg-white p-4 rounded-xl shadow-lg mb-8 flex flex-wrap items-center justify-between gap-4">
+        <!-- Search Input -->
+        <div class="w-full sm:w-auto flex-grow order-2 sm:order-1">
+            <input type="text" id="course-search" placeholder="اكتب اسم الدورة..."
+                   class="w-full p-3 rounded-lg bg-gray-200 text-gray-900 border border-gray-300 focus:outline-none focus:border-green-500 transition duration-200 text-right">
+        </div>
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center sm:justify-start gap-2 order-1 sm:order-2">
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="all">الكل</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="freelancing">أعمال</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="devops">تقنية</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="personal-development">تطوير ذاتي</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="game-development">إبداعي</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="cybersecurity">أمن سيبراني</button>
+        </div>
+    </div>
+    
+    <div id="courses-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- تصنيف العمل الحر -->
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">DEVENIR FREELANCE NOMADE : Vivre de sa passion librement</h3>
+            <p class="text-sm text-gray-600 mb-4">أن تصبح فريلانسر رحال: عِش شغفك بحرية</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">2FCAEC9F86ABB1B150C5</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/devenir-freelance-nomade/?couponCode=2FCAEC9F86ABB1B150C5" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Start Your One-Person Freelance Agency</h3>
+            <p class="text-sm text-gray-600 mb-4">ابدأ وكالتك الخاصة للعمل الحر</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">15BE38C4CC05BF047993</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/start-your-freelancing-agency/?couponCode=15BE38C4CC05BF047993" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">How to Transition to Product Management (And Succeed)</h3>
+            <p class="text-sm text-gray-600 mb-4">كيف تنتقل إلى إدارة المنتجات وتنجح</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">651203D40A0B389EAAD5</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/how-to-transition-to-product-management-and-succeed/?couponCode=651203D40A0B389EAAD5" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Facebook Ads: Run Your First Ad Campaign</h3>
+            <p class="text-sm text-gray-600 mb-4">إعلانات فيسبوك: أطلق أول حملة إعلانية لك</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">13AUGUST2025</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/facebook-ads-run-your-first-ad-campaign/?couponCode=13AUGUST2025" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Google My Business. How to Master Powerful Tool for Company</h3>
+            <p class="text-sm text-gray-600 mb-4">Google My Business: كيف تتقن هذه الأداة القوية لشركتك</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">13AUGUST2025</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/google-my-business-how-to-master-powerful-tool-for-company/?couponCode=13AUGUST2025" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Web Analytics with Similarweb: from Basic to PRO!</h3>
+            <p class="text-sm text-gray-600 mb-4">تحليلات الويب باستخدام Similarweb: من الأساسي إلى المحترف</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">13AUGUST2025</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/web-analytics-with-similarweb-from-basic-to-pro/?couponCode=13AUGUST2025" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Implementing Agile Marketing and Marketing Sprints</h3>
+            <p class="text-sm text-gray-600 mb-4">تطبيق التسويق الرشيق وسباقات التسويق (Marketing Sprints)</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">13AUGUST2025</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/implementing-agile-marketing-and-marketing-sprints/?couponCode=13AUGUST2025" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="freelancing">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أعمال</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Make a WordPress Website with Elementor</h3>
+            <p class="text-sm text-gray-600 mb-4">إنشاء موقع ووردبريس باستخدام Elementor</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">13AUGUST2025</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/make-a-wordpress-website-with-elementor/?couponCode=13AUGUST2025" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+    
+        <!-- تصنيف تطوير البرمجيات -->
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Ultimate EKS Bootcamp by School of Devops</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة EKS التمهيدية والنهائية من School of DevOps</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ultimate-eks-bootcamp-school-of-devops/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Javascript Practicals Crash Course</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة مكثفة في تطبيقات Javascript العملية</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">0A6C9C46BF44663036B4</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/javascript-practicals-crash-course/?couponCode=0A6C9C46BF44663036B4" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">AI-Driven Infrastructure as Code (IaC) and Cloud Automation</h3>
+            <p class="text-sm text-gray-600 mb-4">البنية التحتية ككود (IaC) والتشغيل الآلي للسحابة بتقنية الذكاء الاصطناعي</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ai-driven-infrastructure-as-code-iac-and-cloud-automation/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">[New] Ultimate Docker Bootcamp for ML, GenAI and Agentic AI</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة Docker الشاملة للذكاء الاصطناعي وتعلم الآلة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/mastering-aiml-with-docker/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Ultimate DevOps to MLOps Bootcamp - Build ML CI/CD Pipelines</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة DevOps إلى MLOps الشاملة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/devops-to-mlops-bootcamp/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Ultimate DevSecOps Bootcamp by School of Devops</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة DevSecOps الشاملة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ultimate_devsecops_bootcamp/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">AI/ML Foundations for Absolute Beginners (AgenticAI + MLOps)</h3>
+            <p class="text-sm text-gray-600 mb-4">أساسيات الذكاء الاصطناعي وتعلم الآلة للمبتدئين</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/aiml-foundations-for-absolute-beginners-agenticai-mlops/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Ultimate Argo Bootcamp by School of Devops® | 6 Projects</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة Argo الشاملة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ultimate-argo-bootcamp-by-school-of-devops/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">CI/CD with Jenkins and Docker</h3>
+            <p class="text-sm text-gray-600 mb-4">التكامل المستمر والنشر المستمر (CI/CD) باستخدام Jenkins و Docker</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ultimate-jenkins-bootcamp-by-school-of-devops/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Windows Containers with Azure DevOps CI/CD Pipeline</h3>
+            <p class="text-sm text-gray-600 mb-4">حاويات ويندوز مع خط أنابيب Azure DevOps CI/CD</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/continuous-integration-with-azure-devops-and-docker/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Ultimate Istio Bootcamp by School of Devops®</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة Istio الشاملة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ultimate-istio-bootcamp/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Ultimate Terraform and OpenTofu Bootcamp by School of Devops</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة Terraform و OpenTofu الشاملة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ultimate-terraform-bootcamp/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Ultimate Openshift (2021) Bootcamp by School of Devops®</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة Openshift الشاملة (2021)</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">AUG2025BB</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/ultimate-openshift-bootcamp-by-school-of-devops/?couponCode=AUG2025BB" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Mastering C++ Language - C++ Programming For Beginners</h3>
+            <p class="text-sm text-gray-600 mb-4">إتقان لغة C++: برمجة C++ للمبتدئين</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">DE0AD9E376A313016477</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/mastering-c-plus-language-c-programming-for-beginners/?couponCode=DE0AD9E376A313016477" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="devops">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تقنية</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Mastering C Language - C Programming For Beginners</h3>
+            <p class="text-sm text-gray-600 mb-4">إتقان لغة C: برمجة C للمبتدئين</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">78DF37A1636A02991CBE</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/master-c-language-c-programming-language-for-beginners/?couponCode=78DF37A1636A02991CBE" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+    
+        <!-- تصنيف التطوير الشخصي -->
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="personal-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تطوير ذاتي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Comment Avoir Une Belle Vie</h3>
+            <p class="text-sm text-gray-600 mb-4">كيف تحصل على حياة جيدة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">ECD4B83FD8D65ABA3CF8</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/comment-avoir-une-belle-vie/?couponCode=ECD4B83FD8D65ABA3CF8" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="personal-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تطوير ذاتي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Excel from Zero to Pro - الإيكسل من الصفر للاحتراف</h3>
+            <p class="text-sm text-gray-600 mb-4">الإيكسل من الصفر للاحتراف</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">EXCELFREE1308</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/excel-from-zero-to-pro/?couponCode=EXCELFREE1308" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="personal-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تطوير ذاتي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Microsoft Excel Formulas and Functions: Comprehensive Guide</h3>
+            <p class="text-sm text-gray-600 mb-4">صيغ ودوال Microsoft Excel: دليل شامل</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">76B6BB0E46E97A9F6766</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/microsoft-excel-formulas-and-functions-comprehensive-guide/?couponCode=76B6BB0E46E97A9F6766" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="personal-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تطوير ذاتي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">The Complete Microsoft Word Course: Master Microsoft Word</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة Microsoft Word الكاملة: إتقان برنامج وورد</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">147F5AB7D864842CB5A7</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/the-complete-microsoft-word-course-master-microsoft-word/?couponCode=147F5AB7D864842CB5A7" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="personal-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">تطوير ذاتي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Complete Character Development Course Online 2025</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة تطوير الشخصيات الكاملة</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">MT130825G1</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/complete-mastery-of-character-development-2025/?couponCode=MT130825G1" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+    
+        <!-- تصنيف تطوير الألعاب -->
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="game-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">إبداعي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Mastering Game Development: From Scratch to Advanced Pro</h3>
+            <p class="text-sm text-gray-600 mb-4">إتقان تطوير الألعاب: من الصفر إلى الاحتراف المتقدم</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">A1F468F88A50A3EFED88</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/mastering-game-development-from-scratch-to-advanced-pro/?couponCode=A1F468F88A50A3EFED88" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="game-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">إبداعي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Adobe Premiere Pro CC Masterclass for Video Editing</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة Adobe Premiere Pro CC الكاملة في تحرير الفيديو</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">F30FDFECFBF34CD626D0</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/adobe-premiere-pro-cc-masterclass-for-video-editing/?couponCode=F30FDFECFBF34CD626D0" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="game-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">إبداعي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Complete Graphics Design MasterClass with Video Editing</h3>
+            <p class="text-sm text-gray-600 mb-4">الدورة الكاملة في التصميم الجرافيكي وتحرير الفيديو</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">B55B8A7F9BDEC518DA09</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/graphics-design-masterclass-with-video-editing-course/?couponCode=B55B8A7F9BDEC518DA09" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="game-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">إبداعي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Mastering Adobe Illustrator Projects: Build Your Portfolio</h3>
+            <p class="text-sm text-gray-600 mb-4">إتقان مشاريع Adobe Illustrator: ابني محفظة أعمالك</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">2B7CA2B1F38A3CC02637</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/mastering-adobe-illustrator-projects-build-your-portfolio/?couponCode=2B7CA2B1F38A3CC02637" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="game-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">إبداعي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Complete Graphics Design Bootcamp Beginner to Advanced</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة التصميم الجرافيكي الشاملة للمبتدئين والمتقدمين</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">0A5BE32CA8B7962BEB82</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/complete-graphics-design-bootcamp-beginner-to-advanced/?couponCode=0A5BE32CA8B7962BEB82" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="game-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">إبداعي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Essentials User Experience Design Adobe XD UI UX Design</h3>
+            <p class="text-sm text-gray-600 mb-4">أساسيات تصميم تجربة المستخدم (UI/UX) مع Adobe XD</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">7F2C102CF92E210AFAF9</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/essentials-user-experience-design-adobe-xd-ui-ux-design/?couponCode=7F2C102CF92E210AFAF9" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="game-development">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">إبداعي</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Adobe After Effect Essential: Learn Video Motion Animation</h3>
+            <p class="text-sm text-gray-600 mb-4">أساسيات Adobe After Effect: تعلم الرسوم المتحركة للفيديو</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">273E481A0FAC74510C12</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/adobe-after-effect-essential-learn-video-motion-animation/?couponCode=273E481A0FAC74510C12" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+    
+        <!-- تصنيف الأمن السيبراني -->
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="cybersecurity">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أمن سيبراني</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Kali Linux for Ethical Hackers</h3>
+            <p class="text-sm text-gray-600 mb-4">دورة كالي لينكس للمخترقين الأخلاقيين</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">8B7C39AD38FCBEC6A257</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/mastering-kali-linux-for-ethical-hackers/?couponCode=8B7C39AD38FCBEC6A257" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="cybersecurity">
+            <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-4">أمن سيبراني</span>
+            <h3 class="text-xl font-bold mb-1 text-green-600">Offensive Security Pathway</h3>
+            <p class="text-sm text-gray-600 mb-4">مسار الأمن الهجومي</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">1E97AE40CEEF097AAB64</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/offensive-security-pathway/?couponCode=1E97AE40CEEF097AAB64" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get all elements
+    const searchInput = document.getElementById('course-search');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+    const dateContainer = document.getElementById('date-container');
+    const copyButtons = document.querySelectorAll('.copy-coupon');
+
+    // Function to get and format dates in Arabic
+    function displayDates() {
+        const today = new Date();
+        const gregorianDate = today.toLocaleDateString('ar-EG', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        const hijriDate = today.toLocaleDateString('ar-EG', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            calendar: 'islamic-umalqura'
+        });
+        dateContainer.innerHTML = `التاريخ الهجري: ${hijriDate} | التاريخ الميلادي: ${gregorianDate}`;
+    }
+    displayDates();
+    
+    // Function to filter and search courses
+    function filterAndSearchCourses() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let activeFilter = 'all';
+
+        // Find the currently active filter button
+        filterButtons.forEach(btn => {
+            if (btn.classList.contains('active')) {
+                activeFilter = btn.dataset.filter;
+            }
+        });
+
+        courseCards.forEach(card => {
+            const courseTitle = card.querySelector('h3').textContent.toLowerCase();
+            const category = card.dataset.category;
+
+            const matchesSearch = courseTitle.includes(searchTerm);
+            const matchesFilter = (activeFilter === 'all' || activeFilter === category);
+
+            if (matchesSearch && matchesFilter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Add event listener for search input
+    searchInput.addEventListener('input', filterAndSearchCourses);
+
+    // Add event listeners for filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            filterAndSearchCourses();
+        });
+    });
+    
+    // Add event listeners for copy buttons
+    copyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const couponCode = button.parentElement.previousElementSibling.querySelector('span').textContent;
+            navigator.clipboard.writeText(couponCode)
+                .then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'تم النسخ!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+        });
+    });
+
+    // Function to copy text to clipboard
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'تم النسخ!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+    }
+
+    // Initially highlight the 'All' button and show all courses
+    document.querySelector('[data-filter="all"]').classList.add('active');
+    filterAndSearchCourses();
+</script>
+
+</body>
+</html>
