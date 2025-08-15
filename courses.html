@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كمشكاة - الكورسات</title>
+    <!-- Google Analytics tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-482MR7LT23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-482MR7LT23');
+    </script>
+    <!-- تضمين Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for a clean look -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <style>
+        /* Base styles for body and fonts */
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl; /* Right-to-left text direction */
+        }
+        /* Animation for page content */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .dropdown-menu {
+            display: none;
+        }
+        .dropdown-menu.active {
+            display: block;
+        }
+    </style>
+    <!-- Google Fonts for Arabic and English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 p-6 sm:p-10">
+
+<div class="container mx-auto fade-in">
+    <!-- Navigation Bar -->
+    <nav class="bg-white p-4 rounded-xl shadow-lg mb-8 flex justify-center flex-wrap gap-4 sm:gap-8">
+        <a href="index.html" class="flex items-center gap-2 p-3 rounded-lg shadow-md bg-white text-gray-700 font-bold hover:bg-green-100 hover:text-green-600 transition duration-200">
+            <i class="ph-house-fill text-xl"></i>
+            <span>الصفحة الرئيسية</span>
+        </a>
+        <div class="relative">
+            <a href="#" id="courses-dropdown-toggle" class="flex items-center gap-2 p-3 rounded-lg shadow-md bg-green-50 text-green-600 font-bold hover:bg-green-100 transition duration-200">
+                <i class="ph-books-fill text-xl"></i>
+                <span>كورسات</span>
+                <i class="ph-caret-down-fill text-green-600 transition duration-200"></i>
+            </a>
+            <div id="courses-dropdown-menu" class="dropdown-menu absolute top-full mt-2 w-48 bg-white rounded-lg shadow-lg z-10 text-right">
+                <a href="udemy-coupons.html" class="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-gray-200 rounded-t-lg">
+                    <i class="ph-ticket-fill text-green-600"></i>
+                    <span>كوبونات كورسات يوديمي</span>
+                </a>
+                <a href="opportunities.html" class="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    <i class="ph-gift-fill text-green-600"></i>
+                    <span>فرص أو منح</span>
+                </a>
+            </div>
+        </div>
+        <a href="articles.html" class="flex items-center gap-2 p-3 rounded-lg shadow-md bg-white text-gray-700 font-bold hover:bg-green-100 hover:text-green-600 transition duration-200">
+            <i class="ph-article-fill text-xl"></i>
+            <span>محتوى</span>
+        </a>
+        <a href="contact.html" class="flex items-center gap-2 p-3 rounded-lg shadow-md bg-white text-gray-700 font-bold hover:bg-green-100 hover:text-green-600 transition duration-200">
+            <i class="ph-chat-circle-dots-fill text-xl"></i>
+            <span>تواصل معنا</span>
+        </a>
+    </nav>
+    
+    <h1 class="text-4xl sm:text-5xl font-bold text-center text-green-600 mb-6">كورسات</h1>
+    
+    <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+        <p class="text-lg text-gray-700 leading-relaxed text-center">
+            تعتبر الكورسات هي الخزان الذي لا ينضب من المعرفة، حيث تمنحك الفرصة لاكتساب مهارات جديدة وتطوير ذاتك في أي مجال. 
+            في "كمشكاة"، نؤمن بأهمية التعلم المستمر كطريق للنجاح، ولهذا نقدم لك مجموعة متنوعة من الكورسات والفرص لمساعدتك على النمو وتحقيق طموحاتك.
+        </p>
+    </div>
+</div>
+
+<script>
+    const dropdownToggle = document.getElementById('courses-dropdown-toggle');
+    const dropdownMenu = document.getElementById('courses-dropdown-menu');
+    
+    dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('active');
+        }
+    });
+</script>
+
+</body>
+</html>
