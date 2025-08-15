@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كمشكاة - تواصل معنا</title>
+    <!-- Google Analytics tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-482MR7LT23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-482MR7LT23');
+    </script>
+    <!-- تضمين Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for a clean look -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <style>
+        /* Base styles for body and fonts */
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl; /* Right-to-left text direction */
+        }
+        /* Animation for page content */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    <!-- Google Fonts for Arabic and English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 p-6 sm:p-10">
+
+<div class="container mx-auto fade-in">
+    <!-- Navigation Bar -->
+    <nav class="bg-white p-4 rounded-xl shadow-lg mb-8 flex justify-center gap-4 sm:gap-8">
+        <a href="index.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">الصفحة الرئيسية</a>
+        <div class="relative dropdown">
+            <a href="courses.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">كورسات</a>
+            <div class="dropdown-menu hidden absolute top-full mt-2 w-48 bg-white rounded-lg shadow-lg z-10 text-right">
+                <a href="udemy-coupons.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 rounded-t-lg">كوبونات كورسات يوديمي</a>
+                <a href="opportunities.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">فرص أو منح</a>
+            </div>
+        </div>
+        <a href="articles.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">محتوى</a>
+        <a href="contact.html" class="text-lg sm:text-xl font-bold text-green-600 transition duration-200">تواصل معنا</a>
+    </nav>
+    
+    <h1 class="text-4xl sm:text-5xl font-bold text-center text-green-600 mb-6">تواصل معنا</h1>
+    <div class="bg-white p-8 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">أرسل لنا رسالة</h2>
+        <form action="mailto:kmshka.official@gmail.com" method="post" enctype="text/plain" class="space-y-4">
+            <div>
+                <label for="subject" class="block text-gray-700 font-bold mb-1">عنوان الرسالة:</label>
+                <input type="text" id="subject" name="subject" placeholder="اكتب عنوان رسالتك هنا..."
+                       class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300 focus:outline-none focus:border-green-500 transition duration-200 text-right">
+            </div>
+            <div>
+                <label for="body" class="block text-gray-700 font-bold mb-1">محتوى الرسالة:</label>
+                <textarea id="body" name="body" rows="5" placeholder="اكتب رسالتك هنا..."
+                          class="w-full p-3 rounded-lg bg-gray-200 border border-gray-300 focus:outline-none focus:border-green-500 transition duration-200 text-right"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">إرسال الرسالة</button>
+        </form>
+        
+        <div class="mt-8 border-t border-gray-200 pt-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">معلومات التواصل</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-gray-100 p-4 rounded-lg shadow flex flex-col items-center justify-between transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <i class="ph-phone-fill text-green-600 text-4xl mb-2"></i>
+                    <p class="font-bold text-green-600 mb-2">رقم التواصل:</p>
+                    <p class="text-sm font-mono text-center">00201023443160</p>
+                    <button onclick="copyToClipboard('00201023443160', this)" class="mt-3 w-full bg-gray-300 text-gray-800 py-2 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الرقم</button>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg shadow flex flex-col items-center justify-between transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <i class="ph-whatsapp-logo-fill text-green-600 text-4xl mb-2"></i>
+                    <p class="font-bold text-green-600 mb-2">قناة واتساب:</p>
+                    <a href="https://whatsapp.com/channel/0029VaobuNjKgsNwqB3rtv3B" target="_blank" class="text-sm font-mono text-center text-blue-500 hover:underline">اضغط للانضمام</a>
+                    <a href="https://whatsapp.com/channel/0029VaobuNjKgsNwqB3rtv3B" target="_blank" class="mt-3 w-full text-center bg-green-600 text-white py-2 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للقناة</a>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg shadow flex flex-col items-center justify-between transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <i class="ph-telegram-logo-fill text-green-600 text-4xl mb-2"></i>
+                    <p class="font-bold text-green-600 mb-2">قناة تيليجرام:</p>
+                    <a href="https://t.me/Kmshkat" target="_blank" class="text-sm font-mono text-center text-blue-500 hover:underline">اضغط للانضمام</a>
+                    <a href="https://t.me/Kmshkat" target="_blank" class="mt-3 w-full text-center bg-green-600 text-white py-2 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للقناة</a>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg shadow flex flex-col items-center justify-between transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <i class="ph-users-four-fill text-green-600 text-4xl mb-2"></i>
+                    <p class="font-bold text-green-600 mb-2">جروب الكورسات:</p>
+                    <a href="https://t.me/Kamshka_Communtiy/831" target="_blank" class="text-sm font-mono text-center text-blue-500 hover:underline">اضغط للانضمام</a>
+                    <a href="https://t.me/Kamshka_Communtiy/831" target="_blank" class="mt-3 w-full text-center bg-green-600 text-white py-2 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للجروب</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to copy text to clipboard
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'تم النسخ!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+    }
+</script>
+
+</body>
+</html>
