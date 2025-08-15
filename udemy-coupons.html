@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كمشكاة - كوبونات كورسات يوديمي</title>
+    <!-- Google Analytics tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-482MR7LT23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-482MR7LT23');
+    </script>
+    <!-- تضمين Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for a clean look -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <style>
+        /* Base styles for body and fonts */
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl; /* Right-to-left text direction */
+        }
+        /* Custom styles for the active filter button */
+        .filter-btn.active {
+            background-color: #22c55e; /* green-500 */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Animation for page content */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    <!-- Google Fonts for Arabic and English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 p-6 sm:p-10">
+
+<div class="container mx-auto fade-in">
+    <!-- Navigation Bar -->
+    <nav class="bg-white p-4 rounded-xl shadow-lg mb-8 flex justify-center gap-4 sm:gap-8">
+        <a href="index.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">الصفحة الرئيسية</a>
+        <div class="relative dropdown">
+            <a href="courses.html" class="text-lg sm:text-xl font-bold text-green-600 transition duration-200">كورسات</a>
+            <div class="dropdown-menu hidden absolute top-full mt-2 w-48 bg-white rounded-lg shadow-lg z-10 text-right">
+                <a href="udemy-coupons.html" class="block px-4 py-2 text-green-600 hover:bg-gray-200 rounded-t-lg">كوبونات كورسات يوديمي</a>
+                <a href="opportunities.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">فرص أو منح</a>
+            </div>
+        </div>
+        <a href="articles.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">محتوى</a>
+        <a href="contact.html" class="text-lg sm:text-xl font-bold text-gray-700 hover:text-green-600 transition duration-200">تواصل معنا</a>
+    </nav>
+
+    <h1 class="text-4xl sm:text-5xl font-bold text-center text-green-600 mb-6">كوبونات كورسات يوديمي</h1>
+    
+    <!-- Date Container -->
+    <div id="date-container" class="text-center text-sm text-gray-600 mb-8"></div>
+
+    <!-- Search and Filter Bar -->
+    <div class="bg-white p-4 rounded-xl shadow-lg mb-8 flex flex-wrap items-center justify-between gap-4">
+        <!-- Search Input -->
+        <div class="w-full sm:w-auto flex-grow order-2 sm:order-1">
+            <input type="text" id="course-search" placeholder="اكتب اسم الدورة..."
+                   class="w-full p-3 rounded-lg bg-gray-200 text-gray-900 border border-gray-300 focus:outline-none focus:border-green-500 transition duration-200 text-right">
+        </div>
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center sm:justify-start gap-2 order-1 sm:order-2">
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="all">الكل</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="freelancing">أعمال</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="devops">تقنية</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="personal-development">تطوير ذاتي</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="game-development">إبداعي</button>
+            <button class="filter-btn bg-gray-300 text-gray-800 hover:bg-green-600 hover:text-white font-semibold py-2 px-4 rounded-lg transition duration-200" data-filter="cybersecurity">أمن سيبراني</button>
+        </div>
+    </div>
+    
+    <div id="courses-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- New Course -->
+        <div class="course-card bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-2xl" data-category="cybersecurity">
+            <div class="flex items-center justify-between mb-4">
+                <span class="bg-gray-300 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">أمن سيبراني</span>
+                <span class="text-xs text-gray-500">تمت الإضافة اليوم</span>
+            </div>
+            <h3 class="text-xl font-bold mb-1 text-green-600">OWASP Security Testing of Web,API, Android& Source code app</h3>
+            <p class="text-sm text-gray-600 mb-4">اختبار أمان تطبيقات الويب، API، أندرويد و تحليل الكود باستخدام أدوات OWASP</p>
+            <p class="text-sm text-gray-600">كوبون الخصم: <span class="font-mono">01695C4A562C3A69A470</span></p>
+            <div class="flex gap-2 mt-4">
+                <button class="copy-coupon w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold transition duration-200 hover:bg-gray-400">نسخ الكوبون</button>
+                <a href="https://www.udemy.com/course/end-to-end-security-testing-owasp-burp-suite-nmap-vooki/?couponCode=01695C4A562C3A69A470" class="w-1/2 text-center bg-green-600 text-white py-3 rounded-lg font-semibold transition duration-200 hover:bg-green-700">الذهاب للدورة</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get all elements
+    const searchInput = document.getElementById('course-search');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+    const dateContainer = document.getElementById('date-container');
+    const copyButtons = document.querySelectorAll('.copy-coupon');
+
+    // Function to get and format dates in Arabic
+    function displayDates() {
+        const today = new Date();
+        const gregorianDate = today.toLocaleDateString('ar-EG', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        const hijriDate = today.toLocaleDateString('ar-EG', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            calendar: 'islamic-umalqura'
+        });
+        dateContainer.innerHTML = `التاريخ الهجري: ${hijriDate} | التاريخ الميلادي: ${gregorianDate}`;
+    }
+    displayDates();
+    
+    // Function to filter and search courses
+    function filterAndSearchCourses() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let activeFilter = 'all';
+
+        // Find the currently active filter button
+        filterButtons.forEach(btn => {
+            if (btn.classList.contains('active')) {
+                activeFilter = btn.dataset.filter;
+            }
+        });
+
+        courseCards.forEach(card => {
+            const courseTitle = card.querySelector('h3').textContent.toLowerCase();
+            const category = card.dataset.category;
+
+            const matchesSearch = courseTitle.includes(searchTerm);
+            const matchesFilter = (activeFilter === 'all' || activeFilter === category);
+
+            if (matchesSearch && matchesFilter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Add event listener for search input
+    searchInput.addEventListener('input', filterAndSearchCourses);
+
+    // Add event listeners for filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            filterAndSearchCourses();
+        });
+    });
+    
+    // Add event listeners for copy buttons
+    copyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const couponCode = button.parentElement.previousElementSibling.querySelector('span').textContent;
+            navigator.clipboard.writeText(couponCode)
+                .then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'تم النسخ!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+        });
+    });
+
+    // Function to copy text to clipboard
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'تم النسخ!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+    }
+
+    // Initially highlight the 'All' button and show all courses
+    document.querySelector('[data-filter="all"]').classList.add('active');
+    filterAndSearchCourses();
+</script>
+
+</body>
+</html>
